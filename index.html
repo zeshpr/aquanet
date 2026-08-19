@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroSphere — социальная сеть в стиле Frutiger Aero</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем шрифт Nunito из Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Левая боковая панель (видна на десктопе) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <span class="logo-icon">💧</span>
+                <h1>AeroSphere</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-section="home">🏠 Главная</button>
+                <button class="nav-item" data-section="profile">👤 Профиль</button>
+                <button class="nav-item" data-section="music">🎵 Музыка</button>
+                <button class="nav-item" data-section="friends">👥 Друзья</button>
+                <button class="nav-item" data-section="messages">💬 Сообщения</button>
+                <button class="nav-item" data-section="settings">⚙️ Настройки</button>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="mini-player">
+                    <span>▶️</span>
+                    <span>Сейчас играет: Ocean Waves</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="content" id="content">
+            <!-- Раздел Главная -->
+            <section id="home" class="section active">
+                <div class="stories">
+                    <div class="story">🌊</div>
+                    <div class="story">☀️</div>
+                    <div class="story">🍃</div>
+                    <div class="story">🐠</div>
+                    <div class="story">💧</div>
+                </div>
+                <div class="post-composer">
+                    <textarea placeholder="Что нового?"></textarea>
+                    <button id="publishBtn" class="btn-primary">Опубликовать</button>
+                </div>
+                <div id="feed" class="feed">
+                    <!-- Посты будут добавляться сюда через JS -->
+                </div>
+            </section>
+
+            <!-- Раздел Профиль -->
+            <section id="profile" class="section">
+                <div class="profile-header">
+                    <div class="cover-photo"></div>
+                    <div class="profile-info">
+                        <div class="avatar">🧑</div>
+                        <h2>Твой профиль</h2>
+                        <p>Статус: В гармонии с природой</p>
+                    </div>
+                </div>
+                <div class="profile-tabs">
+                    <button class="tab active">Посты</button>
+                    <button class="tab">Фото</button>
+                    <button class="tab">Музыка</button>
+                </div>
+                <div class="profile-posts">
+                    <p>Здесь будут твои посты.</p>
+                </div>
+            </section>
+
+            <!-- Раздел Музыка -->
+            <section id="music" class="section">
+                <h2>Музыка</h2>
+                <div class="music-player">
+                    <div class="album-art">🎵</div>
+                    <div class="track-info">
+                        <strong>Ocean Waves</strong>
+                        <span>Chillout Mix</span>
+                    </div>
+                    <div class="controls">
+                        <button>⏮️</button>
+                        <button>▶️</button>
+                        <button>⏭️</button>
+                    </div>
+                </div>
+                <div class="playlist">
+                    <div class="track">🌊 Ocean Waves</div>
+                    <div class="track">☀️ Sunny Morning</div>
+                    <div class="track">🍃 Forest Breeze</div>
+                </div>
+            </section>
+
+            <!-- Раздел Друзья -->
+            <section id="friends" class="section">
+                <h2>Друзья</h2>
+                <div class="friend-grid">
+                    <div class="friend-card">👤 Анна</div>
+                    <div class="friend-card">👤 Пётр</div>
+                    <div class="friend-card">👤 Мария</div>
+                    <div class="friend-card">👤 Иван</div>
+                </div>
+            </section>
+
+            <!-- Раздел Сообщения -->
+            <section id="messages" class="section">
+                <h2>Сообщения</h2>
+                <div class="chat-list">
+                    <div class="chat-item">💬 Анна: Привет!</div>
+                    <div class="chat-item">💬 Пётр: Как дела?</div>
+                </div>
+            </section>
+
+            <!-- Раздел Настройки -->
+            <section id="settings" class="section">
+                <h2>Настройки</h2>
+                <div class="settings-group">
+                    <h3>Тема оформления</h3>
+                    <select id="themeSelect">
+                        <option value="aqua">Aqua (голубая)</option>
+                        <option value="grass">Grass (зелёная)</option>
+                        <option value="sunset">Sunset (оранжевая)</option>
+                    </select>
+                </div>
+                <div class="settings-group">
+                    <h3>Звуки интерфейса</h3>
+                    <label><input type="checkbox" checked> Включить звуки</label>
+                </div>
+            </section>
+        </main>
+
+        <!-- Мобильная нижняя навигация -->
+        <nav class="bottom-nav" id="bottomNav">
+            <button class="nav-item active" data-section="home">🏠</button>
+            <button class="nav-item" data-section="friends">👥</button>
+            <button class="nav-item" data-section="music">🎵</button>
+            <button class="nav-item" data-section="messages">💬</button>
+            <button class="nav-item" data-section="profile">👤</button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
