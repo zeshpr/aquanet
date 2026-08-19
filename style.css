@@ -1,0 +1,496 @@
+/* ========== Базовые стили и переменные ========== */
+:root {
+    --primary: #4FC3F7;
+    --primary-light: #81D4FA;
+    --green: #A5D6A7;
+    --orange: #FFB74D;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --blur: blur(12px);
+    --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    --radius: 20px;
+    --font: 'Nunito', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background: linear-gradient(135deg, #E0F7FA, #B2EBF2, #C8E6C9);
+    min-height: 100vh;
+    color: #1a3b4d;
+    overflow-x: hidden;
+}
+
+/* Общие контейнеры */
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Стеклянные панели */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ========== Боковая панель (десктоп) ========== */
+.sidebar {
+    width: 260px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border-right: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.8);
+}
+
+.logo-icon {
+    font-size: 32px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.mini-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+/* ========== Основной контент ========== */
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== Сторис ========== */
+.stories {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.story {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    border: 3px solid #fff;
+    box-shadow: 0 0 15px rgba(255,255,255,0.6);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* ========== Композер поста ========== */
+.post-composer {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.post-composer textarea {
+    width: 100%;
+    height: 80px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.6);
+    font-family: var(--font);
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(180deg, #81D4FA, #4FC3F7);
+    border: none;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 195, 247, 0.6);
+}
+
+/* ========== Лента постов ========== */
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.post-author {
+    font-weight: 700;
+}
+
+.post-time {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.post-text {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.post-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    color: #1a3b4d;
+    font-size: 18px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.post-actions button:hover {
+    transform: scale(1.2);
+}
+
+/* ========== Профиль ========== */
+.profile-header {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.cover-photo {
+    height: 200px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #a8e6cf, #dcedc1, #ffd3b6);
+    box-shadow: var(--shadow);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: -40px;
+    padding: 0 20px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 20px rgba(255,255,255,0.8);
+}
+
+.profile-tabs {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.tab {
+    padding: 8px 20px;
+    border: none;
+    background: rgba(255,255,255,0.3);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tab.active {
+    background: #fff;
+    box-shadow: var(--shadow);
+}
+
+/* ========== Музыка ========== */
+.music-player {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.album-art {
+    font-size: 48px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.track {
+    padding: 12px 15px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.track:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+/* ========== Друзья ========== */
+.friend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.friend-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.friend-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+/* ========== Сообщения ========== */
+.chat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-item {
+    padding: 15px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 12px;
+}
+
+/* ========== Настройки ========== */
+.settings-group {
+    margin-bottom: 25px;
+}
+
+.settings-group select,
+.settings-group input[type="checkbox"] {
+    margin-top: 5px;
+    font-family: var(--font);
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* ========== Мобильная нижняя навигация ========== */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border-top: 1px solid var(--glass-border);
+    padding: 10px;
+    justify-content: space-around;
+    z-index: 100;
+}
+
+.bottom-nav .nav-item {
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+/* ========== Адаптивность ========== */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Скрываем боковую панель */
+    }
+
+    .bottom-nav {
+        display: flex; /* Показываем нижнюю навигацию */
+    }
+
+    .content {
+        padding: 15px;
+        padding-bottom: 70px; /* чтобы контент не перекрывался нижней панелью */
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    .stories {
+        gap: 10px;
+    }
+
+    .post-composer textarea {
+        height: 60px;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+        margin-top: -40px;
+    }
+
+    .friend-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .friend-grid {
+        grid-template-columns: 1fr;
+    }
+}
